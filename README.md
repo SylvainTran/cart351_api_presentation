@@ -1,9 +1,13 @@
 # Demo Design Document
 
-    The demo API presentation focuses on showing well-documented, small examples\
-    for the Media Streams API. Examples should be ideally modular and easily\ integrable into a flexible variety of projects.\
+    The demo API presentation focuses on showing well-documented, small examples
+    for the Media Streams API. Examples should be ideally modular and easily integrable into a flexible variety of projects.
 
-    The first version shows Media Streams + Canvas API interactions.\
+    The first version shows Media Streams + Canvas API interactions.
+
+## Presentation Slides
+    
+    In development.
 
 ## Build Status
 
@@ -21,7 +25,7 @@ Scenes:
     End
 
 Logic:
-    User interaction: MediaStream capture
+    User interaction: MediaStream capture\n
     User data:
 
 ## Versions
@@ -37,9 +41,10 @@ Logic:
 
     Navigator.MediaDevices.getUserMedia();
     MediaStream tracks
-    requestFrame();
-    getVideoTrack[0]
+    stream.requestFrame();
+    MediaStream.getVideoTrack[0]
     HtmlCanvasElement
+    WebRTC
 
 ## References
 
@@ -47,9 +52,13 @@ Logic:
         https://developer.mozilla.org/en-US/docs/Web/API/Media_Streams_API\
     Canvas API:
         https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API\
+    WebRTC:
+        https://webrtc.github.io/samples/
 
 ## Timeline
 
     Week 1: Everything
 
 ## UML
+
+Upcoming.
