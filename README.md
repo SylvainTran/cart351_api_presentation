@@ -61,7 +61,7 @@ Logic:
     V1: Working set of modular examples to go with canvas element. Basic
     pixel manipulation.
 
-    V2: More in-depth canvas manipulation or WebRTC connectivity.
+    V2: Show main digital art usages of MediaStreams: More in-depth canvas manipulation or WebRTC connectivity. WebGL? Motion Capture?
 
     V3: Stretch game/main interactive application.
 
