@@ -40,7 +40,7 @@
 
 v0.1 - Demo tutorial media capture picture\
 v0.2 - Current version. Design and Structuring, v1 scope (Media Streams + Canvas API)\
-v0.3 - Added MediaStreams for audio, structured base demo page html
+v0.3 - Added MediaStreams for audio, structured base demo page html\
 v0.3b - Added audio record playback
 
 ## Stretch
@@ -60,7 +60,7 @@ Logic:
     V1: Working set of modular examples to go with canvas element. Basic
     pixel manipulation.
 
-    v2: More in-depth canvas manipulation or WebRTC connectivity.
+    V2: More in-depth canvas manipulation or WebRTC connectivity.
 
     V3: Stretch game/main interactive application.
 
