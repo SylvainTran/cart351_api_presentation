@@ -16,14 +16,14 @@
     Get Tutorials:
 
     Basic Get Audio - Done - Passing
-    Basic Get Audio Capture - In progress
+    Basic Get Audio Capture - Passing
     Basic Get Video - Done - Passing
     Basic Get Picture - Done - Passing
     Basic Get Video Capture - Not started
 
     Set Tutorials:
     Basic Use Get Video Capture to Change Canvas Elements - Not Started
-    Basic Use Get Audio Capture to create Patterns in Color or Animation Manipulation in Canvas - Not Started
+    Basic Use Get Audio Capture to create Patterns in Color or Animation Manipulation in Canvas (Filtering) - Not Started
 
     Constraints Configuration Tutorial:
     Basic Constraints - Not Started
@@ -41,6 +41,7 @@
 v0.1 - Demo tutorial media capture picture\
 v0.2 - Current version. Design and Structuring, v1 scope (Media Streams + Canvas API)\
 v0.3 - Added MediaStreams for audio, structured base demo page html
+v0.3b - Added audio record playback
 
 ## Stretch
 

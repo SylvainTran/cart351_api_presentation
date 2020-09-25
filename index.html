@@ -16,12 +16,13 @@
         <!-- Begin get audio tutorial. -->
         <h1>Simple Audio Logger: Get Audio</h1>
         <h2>1) The first step is to create a media stream to capture or create our DATA.</h2>
-        <h3>This was done when you accepted to use your microphone and camera in this case (both).</h3>
-        <div class="microphone">
+        <h3>This was done when you accepted to use your microphone and camera in this case (either or both depending on constraints passed to getUserMedia().</h3>
+        <div id="microphone">
             <audio id="audio"></audio>
             <h2>B) The second step is to use the media stream recording API to record audio. Click on record microphone to record audio.</h2>
             <h2>In construction - Got here</h2>
-            <button id="audioRecordButton">Record Microphone</button>
+            <button id="audioStartButton">Record Microphone</button>
+            <button id="audioStopButton">Stop Microphone</button>
         </div>
         <h2>This concludes getting a simple audio recording through Media Streams API + MediaStream Recording API</h2>
  
