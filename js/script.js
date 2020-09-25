@@ -1,4 +1,5 @@
 window.addEventListener('DOMContentLoaded', (event) => startup());
+// Legacy code: Used to learn the API
 
 let DemoMediaStreamObject = function(){
     let width = 320;
@@ -101,7 +102,7 @@ function enumerateDevices(videoInputs) {
     });    
 }
 
-// Smile Detector
+// Smile Detector: stretch goal game / interactive app
 function smileDetector() {
     // Ask user to pose a neutral face expression
     // Ask user to pose a smile and not move anything else

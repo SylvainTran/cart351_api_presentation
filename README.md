@@ -11,10 +11,36 @@
 
 ## Build Status
 
+    CORE:
+
+    Get Tutorials:
+
+    Basic Get Audio - Done - Passing
+    Basic Get Audio Capture - In progress
+    Basic Get Video - Done - Passing
+    Basic Get Picture - Done - Passing
+    Basic Get Video Capture - Not started
+
+    Set Tutorials:
+    Basic Use Get Video Capture to Change Canvas Elements - Not Started
+    Basic Use Get Audio Capture to create Patterns in Color or Animation Manipulation in Canvas - Not Started
+
+    Constraints Configuration Tutorial:
+    Basic Constraints - Not Started
+
+    Helper Methods:
+
+    STRETCH GOALS:
+
+    Interactive Canvas Example Tutorial:
+    Basic Game - Not Started
+    Basic Experience - Not Started
+
 ## Change Log History
 
 v0.1 - Demo tutorial media capture picture\
 v0.2 - Current version. Design and Structuring, v1 scope (Media Streams + Canvas API)\
+v0.3 - Added MediaStreams for audio, structured base demo page html
 
 ## Stretch
 

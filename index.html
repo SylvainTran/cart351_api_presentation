@@ -3,38 +3,44 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Cart 351 - Concordia University - Sylvain Tran</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="css/animations.css">
-        <link href="https://fonts.googleapis.com/css2?family=Lexend+Zetta&display=swap" rel="stylesheet">
-        <script src="js/script.js"></script>
+        <title>Cart 351 - Concordia University - Simple getUserMedia DEMO</title>
+        <script src="js/UserAudio.js"></script>
     <nav id="navbar">
         <div id="flex-navbar">
-            <header id="nav-title">Cart 351: MediaStream Capture API Demo</header>
-            <small>MediaStream API Demo</small><br>
+            <header id="nav-title">Cart 351: MediaStream getUserMedia demo</header>
+            <small>MediaStreams getUserMedia() and MediaStreams Recording API Demo</small><br>
         </div>
     </nav>
 
     <body>
+        <!-- Begin get audio tutorial. -->
+        <h1>Simple Audio Logger: Get Audio</h1>
+        <h2>1) The first step is to create a media stream to capture or create our DATA.</h2>
+        <h3>This was done when you accepted to use your microphone and camera in this case (both).</h3>
+        <div class="microphone">
+            <audio id="audio"></audio>
+            <h2>B) The second step is to use the media stream recording API to record audio. Click on record microphone to record audio.</h2>
+            <h2>In construction - Got here</h2>
+            <button id="audioRecordButton">Record Microphone</button>
+        </div>
+        <h2>This concludes getting a simple audio recording through Media Streams API + MediaStream Recording API</h2>
+ 
+        <!-- Begin get video tutorial. -->
+        <h1>Simple Video Recorder: Get Video</h1>
+        <h2>Let's see how to record video to be able to use it in a canvas later.</h2>
+
+        <!-- Used to capture and store video frames. -->        
         <div class="camera">
-            <video id="video">
+            <video style="display: none;" id="video">
                 Video stream not available.
             </video>
-            <!-- 
-            <video controls>
-                <source src="myVideo.mp4" type="video/mp4">
-                <source src="myVideo.webm" type="video/webm">
-                <p>Your browser doesn't support HTML5 video. Here is
-                    a <a href="myVideo.mp4">link to the video</a> instead.
-                </p>
-            </video> 
-            -->
-            <button id="startbutton">Take photo</button>
+            <button id="videoRecordButton">Record Video</button>
         </div>
+
         <!-- Used to capture and store the frames. -->
         <canvas id="canvas" style="display: none;"></canvas>
         <div class="output">
-            <img id="photo" alt="The screen capture will appear in this box.">
+            <!-- <img id="photo" alt="The screen capture will appear in this box."> -->
         </div>
     </body>
 
