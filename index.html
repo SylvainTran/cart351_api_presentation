@@ -5,6 +5,8 @@
         <meta charset="utf-8">
         <title>Cart 351 - Concordia University - Simple getUserMedia DEMO</title>
         <script src="js/UserAudio.js"></script>
+        <script src="js/UserVideo.js"></script>
+        <script src="js/main.js"></script>
     <nav id="navbar">
         <div id="flex-navbar">
             <header id="nav-title">Cart 351: MediaStream getUserMedia demo</header>
@@ -19,8 +21,7 @@
         <h3>This was done when you accepted to use your microphone and camera in this case (either or both depending on constraints passed to getUserMedia().</h3>
         <div id="microphone">
             <audio id="audio"></audio>
-            <h2>B) The second step is to use the media stream recording API to record audio. Click on record microphone to record audio.</h2>
-            <h2>In construction - Got here</h2>
+            <h2>2) The second step is to use the media stream recording API to record audio. Click on record microphone to record audio.</h2>
             <button id="audioStartButton">Record Microphone</button>
             <button id="audioStopButton">Stop Microphone</button>
         </div>
@@ -28,18 +29,23 @@
  
         <!-- Begin get video tutorial. -->
         <h1>Simple Video Recorder: Get Video</h1>
-        <h2>Let's see how to record video to be able to use it in a canvas later.</h2>
+        <h2>1) Let's see how to record video to be able to use it in a canvas later.</h2>
 
         <!-- Used to capture and store video frames. -->        
-        <div class="camera">
+        <div id="camera">
             <video style="display: none;" id="video">
                 Video stream not available.
             </video>
-            <button id="videoRecordButton">Record Video</button>
+
+            <video id="videoTutorial">
+                Video stream not available.
+            </video><br>
+            <button id="videoStartButton">Record Video</button>
+            <button id="videoStopButton">Stop Record Video</button>
         </div>
 
         <!-- Used to capture and store the frames. -->
-        <canvas id="canvas" style="display: none;"></canvas>
+        <canvas id="canvas"></canvas>
         <div class="output">
             <!-- <img id="photo" alt="The screen capture will appear in this box."> -->
         </div>

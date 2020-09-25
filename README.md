@@ -19,7 +19,8 @@
     Basic Get Audio Capture - Passing
     Basic Get Video - Done - Passing
     Basic Get Picture - Done - Passing
-    Basic Get Video Capture - Not started
+    Basic Get Video Capture - Done - Passing
+    Basic Get Canvas Video Capture - Not started
 
     Set Tutorials:
     Basic Use Get Video Capture to Change Canvas Elements - Not Started
@@ -83,6 +84,9 @@ Logic:
         https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API\
     WebRTC:
         https://webrtc.github.io/samples/
+    Canvas Manipulation:
+        http://html5doctor.com/video-canvas-magic/
+        https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode
 
 ## Timeline
 
