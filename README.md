@@ -76,6 +76,8 @@ Logic:
 
     Media Streams API:
         https://developer.mozilla.org/en-US/docs/Web/API/Media_Streams_API\
+    Media Streams Recording API:
+        https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API
     Canvas API:
         https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API\
     WebRTC:
