@@ -12,8 +12,8 @@ let AudioOnlyMediaStream = function() {
     this.localMediaStream = null;
     this.video = document.querySelector("video"); // Get the video element to use
     this.streaming = false; // Are we streaming the user's video or not
-    var constraints = { audio: true }; // We need audio so it's a constraint
-    var chunks = []; // Use to deposit our audio files in chunks
+    this.constraints = { audio: true }; // We need audio so it's a constraint
+    this.chunks = []; // Use to deposit our audio files in chunks
 
     let getLocalMediaStream = function() {
         // First check if navigator has mediaDevices
