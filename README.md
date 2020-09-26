@@ -20,11 +20,14 @@
     Basic Get Video - Done - Passing
     Basic Get Picture - Done - Passing
     Basic Get Video Capture - Done - Passing
-    Basic Get Canvas Video Capture - Not started
+    Basic Get Canvas Video Capture - Done - Passing
 
     Set Tutorials:
-    Basic Use Get Video Capture to Change Canvas Elements - Not Started
-    Basic Use Get Audio Capture to create Patterns in Color or Animation Manipulation in Canvas (Filtering) - Not Started
+    Basic Use Get Video Capture to Change Canvas Elements - Done - Passing
+    Basic Use Get Audio Capture to create Patterns in Color or Animation - Not started\
+    Manipulation in Canvas (Filtering) - Done - Passing
+    Dynamic Manipulation in Canvas (user mouse events) - Not started
+    WebRTC connectivity with one's canvas to remote peer canvas (collab art?)- Not started\ 
 
     Constraints Configuration Tutorial:
     Basic Constraints - Not Started
