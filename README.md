@@ -43,6 +43,7 @@ v0.1 - Demo tutorial media capture picture\
 v0.2 - Current version. Design and Structuring, v1 scope (Media Streams + Canvas API)\
 v0.3 - Added MediaStreams for audio, structured base demo page html\
 v0.3b - Added audio record playback
+v0.4 - Added Get Video and record
 
 ## Stretch
 
@@ -65,14 +66,26 @@ Logic:
 
     V3: Stretch game/main interactive application.
 
-## Objects & Methods of Interest
+## Objects & Methods of Interest (Not all from same API)
+
+    MediaStreams API:
 
     Navigator.MediaDevices.getUserMedia();
-    MediaStream tracks
+    MediaStream.getVideoTrack/getAudioTrack
+
+    Canvas Streams API:
+
     stream.requestFrame();
-    MediaStream.getVideoTrack[0]
     HtmlCanvasElement
     WebRTC
+    MediaSource.addSourceBuffer()
+
+    Canvas Manipulation Related: 
+    drawImage() : https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
+    getImageData() : https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getImageData
+    putImageData() : https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/putImageData
+    ImageData : https://developer.mozilla.org/en-US/docs/Web/API/ImageData
+    ImageData.data: https://developer.mozilla.org/en-US/docs/Web/API/ImageData/data
 
 ## References
 

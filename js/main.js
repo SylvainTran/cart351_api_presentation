@@ -5,4 +5,16 @@ let startup = function() {
     audioOnlyMediaStream.getLocalMediaStream(); // This is the stream source data, which we use subsequently
     let videoOnlyMediaStream = VideoOnlyMediaStream();
     videoOnlyMediaStream.getLocalMediaStream(); // This is the stream source data, which we use subsequently
+
+    // Simple canvas-video pixel manipulation example
+    // Get the video element, capture it in the canvas
+    let videoElement = document.getElementById("videoTutorial");
+    let canvas = document.getElementById("canvas");
+    let constraints = { width: 150, height: 150 };
+    videoElement.addEventListener('play', function() {
+        let videoToCanvas = new VideoToCanvas();
+        // Change the pixels inside the canvas using imageData
+        videoToCanvas.init(videoToCanvas.drawRegularImage, videoElement, canvas, constraints);
+        // Simple user interactions over canvas -- making certain image regions react to mouse?            
+    });
 }
