@@ -44,6 +44,7 @@ v0.2 - Current version. Design and Structuring, v1 scope (Media Streams + Canvas
 v0.3 - Added MediaStreams for audio, structured base demo page html\
 v0.3b - Added audio record playback
 v0.4 - Added Get Video and record
+v0.5 - Added half screen noise pixel manipulation example
 
 ## Stretch
 

@@ -86,32 +86,63 @@ let VideoToCanvas = function () {
 
         },
 
-        // Example for reference
-        drawExample: function (v, c, bc, w, h) {
-            if (v.paused || v.ended) return false;
-            // First, draw it into the backing canvas
-            bc.drawImage(v, 0, 0, w, h);
-            // Grab the pixel data from the backing canvas
-            let idata = bc.getImageData(0, 0, w, h);
-            let data = idata.data;
-            // Loop through the pixels, turning them grayscale
-            for (let i = 0; i < data.length; i += 4) {
-                let r = data[i];
-                let g = data[i + 1];
-                let b = data[i + 2];
-                let brightness = (3 * r + 4 * g + b) >>> 3;
-                data[i] = brightness;
-                data[i + 1] = brightness;
-                data[i + 2] = brightness;
+        drawHalfNoiseCanvas: function() {
+            const ctx = this.canvasElement.getContext('2d');
+            const images = this.videoElement;
+            const width = this.constraints.width;
+            const height = this.constraints.height;
+            ctx.drawImage(images, 0, 0, width, height);
+            let frame = ctx.getImageData(0, 0, width, height); // We are extracting the full width and height of the context in this case
+            const rgbaChannels = 4;
+            let framePixelsLength = frame.data.length / rgbaChannels; // 300 x 300
+            for (let i = 0; i < framePixelsLength; i += rgbaChannels) { // To jump to the next pixel, we need to jump over four values (rgbaChannels.length)
+                let r = frame.data[i + 0]; // Red is at the first position of each group of four values for each new pixel
+                let g = frame.data[i + 1]; // green
+                let b = frame.data[i + 2]; // blue
+                let a = frame.data[i + 3]; // alpha
+
+                // Do whatever you want with the rgba values here
+                // r = r+50;
+                // g = g+50;
+                // b = b+50;
+                // a = 255;
+                // Change pixels with frame.data[i + x] = changedValue;
+                let x = Math.random() * 255;
+                frame.data[i + 0] = r + x;
+                frame.data[i + 1] = g + x;
+                frame.data[i + 2] = b + x;
+                frame.data[i + 3] = a + x;
             }
-            idata.data = data;
-            // Draw the pixels onto the visible canvas
-            c.putImageData(idata, 0, 0);
-            // Start over
-            setTimeout(function () {
-                draw(v, c, bc, w, h);
-            }, 0);
+            // Apply
+            ctx.putImageData(frame, 0, 0);
         }
+
+        // // Example for reference
+        // drawExample: function (v, c, bc, w, h) {
+        //     if (v.paused || v.ended) return false;
+        //     // First, draw it into the backing canvas
+        //     bc.drawImage(v, 0, 0, w, h);
+        //     // Grab the pixel data from the backing canvas
+        //     let idata = bc.getImageData(0, 0, w, h);
+        //     let data = idata.data;
+        //     // Loop through the pixels, turning them grayscale
+        //     for (let i = 0; i < data.length; i += 4) {
+        //         let r = data[i];
+        //         let g = data[i + 1];
+        //         let b = data[i + 2];
+        //         let brightness = (3 * r + 4 * g + b) >>> 3;
+        //         data[i] = brightness;
+        //         data[i + 1] = brightness;
+        //         data[i + 2] = brightness;
+        //     }
+        //     idata.data = data;
+        //     // Draw the pixels onto the visible canvas
+        //     c.putImageData(idata, 0, 0);
+        //     // Start over
+        //     setTimeout(function () {
+        //         draw(v, c, bc, w, h);
+        //     }, 0);
+        // }
 
     }
 }
