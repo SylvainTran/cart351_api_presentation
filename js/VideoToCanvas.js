@@ -1,10 +1,9 @@
 let VideoToCanvas = function () {
 
     return {
-        // linkToVideo
-        // arg: drawType : the draw effect we want to call for each frame
-        // Continous link between the video element and the canvas
-        // Add an event listener for video play to callback a recursive draw frame
+        // init
+        //
+        // Initiates the video + canvas drawing process
         init: function(drawType, videoElement, canvasElement, constraints) {
             this.drawType = drawType;
             this.videoElement = videoElement;
@@ -13,6 +12,9 @@ let VideoToCanvas = function () {
             this.linkToVideo();
         },
 
+        // linkToVideo
+        // arg: drawType : the draw effect we want to call for each frame
+        // Continous link between the video element and the canvas
         linkToVideo: function () {
             if (this.videoElement.paused || this.videoElement.ended) {
                 return; // Don't link if video is paused or ended
@@ -52,7 +54,7 @@ let VideoToCanvas = function () {
             // we have 4 x 300 x 300 pixels in total (frame.data.length) = 360 000 values stored
             // Dividing by 4 means taking just the pixels' worth
             const rgbaChannels = 4;
-            let framePixelsLength = frame.data.length / rgbaChannels; // 300 x 300
+            const framePixelsLength = frame.data.length / rgbaChannels; // 300 x 300
             for (let i = 0; i < framePixelsLength; i += rgbaChannels) { // To jump to the next pixel, we need to jump over four values (rgbaChannels.length)
                 // An alternative to i+=rgbaChannels is to multiply i * 4 for each array rgbaChannel access
                 let r = frame.data[i + 0]; // Red is at the first position of each group of four values for each new pixel
@@ -86,6 +88,7 @@ let VideoToCanvas = function () {
 
         },
 
+        // Noise over half canvas example
         drawHalfNoiseCanvas: function() {
             const ctx = this.canvasElement.getContext('2d');
             const images = this.videoElement;
@@ -94,7 +97,7 @@ let VideoToCanvas = function () {
             ctx.drawImage(images, 0, 0, width, height);
             let frame = ctx.getImageData(0, 0, width, height); // We are extracting the full width and height of the context in this case
             const rgbaChannels = 4;
-            let framePixelsLength = frame.data.length / rgbaChannels; // 300 x 300
+            const framePixelsLength = frame.data.length / rgbaChannels; // 300 x 300
             for (let i = 0; i < framePixelsLength; i += rgbaChannels) { // To jump to the next pixel, we need to jump over four values (rgbaChannels.length)
                 let r = frame.data[i + 0]; // Red is at the first position of each group of four values for each new pixel
                 let g = frame.data[i + 1]; // green

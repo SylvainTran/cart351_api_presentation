@@ -1,6 +1,7 @@
 // An example of a media stream with an audio track only.
 // Without Constraints Example. Constraints could be height and width of media required. But we just care about sound here.
-// We follow a module pattern.
+
+// We follow a module pattern... TODO extract and inject dependencies such as buttons and record options
 let AudioOnlyMediaStream = function() {
     this.localMediaStream = null;  // The stream data we want to get from the user
     this.video = document.querySelector("video"); // Get the video element to use
