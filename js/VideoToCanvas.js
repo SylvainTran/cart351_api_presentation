@@ -95,7 +95,8 @@ let VideoToCanvas = function () {
             const width = this.constraints.width;
             const height = this.constraints.height;
             ctx.drawImage(images, 0, 0, width, height);
-            let frame = ctx.getImageData(0, 0, width, height); // We are extracting the full width and height of the context in this case
+            // Multiply the width and height by 4 because there are four values per pixels, so the full frame is 4*300 and 4*300 for width and height respectively
+            let frame = ctx.getImageData(0, 0, 4*width, 4*width); // We are extracting the full width and height of the context in this case
             const rgbaChannels = 4;
             const framePixelsLength = frame.data.length / rgbaChannels; // 300 x 300
             for (let i = 0; i < framePixelsLength; i += rgbaChannels) { // To jump to the next pixel, we need to jump over four values (rgbaChannels.length)

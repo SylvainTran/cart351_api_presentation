@@ -104,6 +104,7 @@ Logic:
     Canvas Manipulation:
         http://html5doctor.com/video-canvas-magic/
         https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode
+        https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Manipulating_video_using_canvas
 
 ## Timeline
 

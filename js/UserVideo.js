@@ -3,8 +3,8 @@ let VideoOnlyMediaStream = function() {
     this.localMediaStream = null;  // The stream data we want to get from the user
     this.video = document.getElementById("videoTutorial"); // Get the video element to use
     this.constraints = { video: { 
-        width: { min: 300, ideal: 320 },
-        height: { min: 300, ideal: 320 },
+        width: { min: 300, ideal: 300 },
+        height: { min: 300, ideal: 300 },
         aspectRatio: { ideal: 1.7777777778 } // 16.9
     }}; // Constraints for the video
     this.recordedChunks = []; // Video frame recorded chunks
