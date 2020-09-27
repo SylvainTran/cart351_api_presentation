@@ -4,10 +4,13 @@
     <head>
         <meta charset="utf-8">
         <title>Cart 351 - Concordia University - Simple getUserMedia DEMO</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
         <script src="js/UserAudio.js"></script>
         <script src="js/UserVideo.js"></script>
         <script src="js/VideoToCanvas.js"></script>
         <script src="js/main.js"></script>
+
     <nav id="navbar">
         <div id="flex-navbar">
             <header id="nav-title">Cart 351: MediaStream getUserMedia demo</header>
@@ -27,12 +30,12 @@
             <button id="audioStopButton">Stop Microphone</button>
         </div>
         <h2>This concludes getting a simple audio recording through Media Streams API + MediaStream Recording API</h2>
- 
+
         <!-- Begin get video tutorial. -->
         <h1>Simple Video Recorder: Get Video</h1>
         <h2>1) Let's see how to record video to be able to use it in a canvas later.</h2>
 
-        <!-- Used to capture and store video frames. -->        
+        <!-- Used to capture and store video frames. -->
         <div id="camera">
             <video style="display: none;" id="video">
                 Video stream not available.
@@ -46,12 +49,35 @@
         </div>
 
         <!-- Used to capture and store the frames. -->
-        <h2>2) Screen noise example.</h2>
-        <canvas id="canvas" height=300></canvas>
+        <h2>2) Examples of pixel manipulation effects</h2>
+        <div id="canvasGrid">
+          <div class="example">
+            <h3>No effects</h3>
+            <canvas class="canvas" id="c1" height="300"></canvas>
+          </div>
+          <div class="example">
+            <h3>Grayscale</h3>
+            <canvas class="canvas" id="c2" height="300"></canvas>
+          </div>
+          <div class="example">
+            <h3>Random colors</h3>
+            <canvas class="canvas" id="c3" height="300"></canvas>
+          </div>
+          <div class="example">
+            <h3>Patterned Colors</h3>
+            <canvas class="canvas" id="c4" height="300"></canvas>
+          </div>
+          <div class="example">
+            <h3>Green screen</h3>
+            <canvas class="canvas" id="c5" height="300"></canvas>
+          </div>
+          <div class="example">
+            <h3>Noise</h3>
+            <canvas class="canvas" id="c6" height="300"></canvas>
+          </div>
+        </div>
         <div class="output">
             <!-- <img id="photo" alt="The screen capture will appear in this box."> -->
-        </div>
-        <h2>3) Add your example here (with a new canvas etc.)</h2>
     </body>
 
 </html>

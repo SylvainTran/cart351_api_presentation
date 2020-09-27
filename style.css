@@ -1,0 +1,23 @@
+body {
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+h2 {
+  text-transform: uppercase;
+}
+
+#canvasGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1080px;
+  margin: auto;
+}
+
+.example {
+  padding: 15px;
+}
+
+.example > h3 {
+  text-transform: uppercase;
+}

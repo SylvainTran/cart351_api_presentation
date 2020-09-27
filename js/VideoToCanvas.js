@@ -74,27 +74,116 @@ let VideoToCanvas = function () {
 
 
         // Make black and white
-        drawBlackAndWhite: function () {
-
+        drawGrayscale: function () {
+          // First get the drawing context from canvas (See CanvasRenderingContext2D)
+          const ctx = this.canvasElement.getContext('2d');
+          const images = this.videoElement;
+          const width = this.constraints.width;
+          const height = this.constraints.height;
+          // Draw an image using the context and the video element as source
+          ctx.drawImage(images, 0, 0, width, height);
+          // Multiply the width and height by 4 because there are four values per pixels, so the full frame is 4*300 and 4*300 for width and height respectively
+          let frame = ctx.getImageData(0, 0, 4*width, 4*height);
+          const rgbaChannels = 4;
+          const framePixelsLength = frame.data.length / rgbaChannels; // 300 x 300
+          for (let i = 0; i < framePixelsLength; i += rgbaChannels) { // To jump to the next pixel, we need to jump over three values (rgbChannels.length)
+              let r = frame.data[i + 0]; // Red is at the first position of each group of four values for each new pixel
+              let g = frame.data[i + 1]; // green
+              let b = frame.data[i + 2]; // blue
+              let a = frame.data[i + 3]; // alpha
+              // Luminance formula to calculate grayscale (red x 0.3 + green x 0.59 + blue x 0.11)
+              let grayscale = r * 0.3 + g * 0.59 + b * 0.11;
+              // Change pixels with frame.data
+              // The alpha channel does not need to be changed;
+              frame.data[i + 0] = grayscale; // r
+              frame.data[i + 1] = grayscale; // g
+              frame.data[i + 2] = grayscale; // b
+              frame.data[i + 3] = a; // a
+          }
+          // Apply
+          ctx.putImageData(frame, 0, 0);
         },
 
         // Make random colors
         drawRandomColors: function () {
-
+          // First get the drawing context from canvas (See CanvasRenderingContext2D)
+          const ctx = this.canvasElement.getContext('2d');
+          const images = this.videoElement;
+          const width = this.constraints.width;
+          const height = this.constraints.height;
+          // Draw an image using the context and the video element as source
+          ctx.drawImage(images, 0, 0, width, height);
+          // Multiply the width and height by 4 because there are four values per pixels, so the full frame is 4*300 and 4*300 for width and height respectively
+          let frame = ctx.getImageData(0, 0, 4*width, 4*height);
+          const rgbaChannels = 4;
+          const framePixelsLength = frame.data.length / rgbaChannels; // 300 x 300
+          for (let i = 0; i < framePixelsLength; i += rgbaChannels) { // To jump to the next pixel, we need to jump over three values (rgbChannels.length)
+              let r = frame.data[i + 0]; // Red is at the first position of each group of four values for each new pixel
+              let g = frame.data[i + 1]; // green
+              let b = frame.data[i + 2]; // blue
+              let a = frame.data[i + 3]; // alpha
+              /*
+              Pixel manipulation here
+              */
+          }
+          // Apply
+          ctx.putImageData(frame, 0, 0);
         },
 
         // Make patterned colors using modulo (%)
         drawPatternedColors: function () {
-
+          // First get the drawing context from canvas (See CanvasRenderingContext2D)
+          const ctx = this.canvasElement.getContext('2d');
+          const images = this.videoElement;
+          const width = this.constraints.width;
+          const height = this.constraints.height;
+          // Draw an image using the context and the video element as source
+          ctx.drawImage(images, 0, 0, width, height);
+          // Multiply the width and height by 4 because there are four values per pixels, so the full frame is 4*300 and 4*300 for width and height respectively
+          let frame = ctx.getImageData(0, 0, 4*width, 4*height);
+          const rgbaChannels = 4;
+          const framePixelsLength = frame.data.length / rgbaChannels; // 300 x 300
+          for (let i = 0; i < framePixelsLength; i += rgbaChannels) { // To jump to the next pixel, we need to jump over three values (rgbChannels.length)
+              let r = frame.data[i + 0]; // Red is at the first position of each group of four values for each new pixel
+              let g = frame.data[i + 1]; // green
+              let b = frame.data[i + 2]; // blue
+              let a = frame.data[i + 3]; // alpha
+              /*
+              Pixel manipulation here
+              */
+          }
+          // Apply
+          ctx.putImageData(frame, 0, 0);
         },
 
         // Make a green screen effect
         drawGreenScreenEffect: function () {
-
+          // First get the drawing context from canvas (See CanvasRenderingContext2D)
+          const ctx = this.canvasElement.getContext('2d');
+          const images = this.videoElement;
+          const width = this.constraints.width;
+          const height = this.constraints.height;
+          // Draw an image using the context and the video element as source
+          ctx.drawImage(images, 0, 0, width, height);
+          // Multiply the width and height by 4 because there are four values per pixels, so the full frame is 4*300 and 4*300 for width and height respectively
+          let frame = ctx.getImageData(0, 0, 4*width, 4*height);
+          const rgbaChannels = 4;
+          const framePixelsLength = frame.data.length / rgbaChannels; // 300 x 300
+          for (let i = 0; i < framePixelsLength; i += rgbaChannels) { // To jump to the next pixel, we need to jump over three values (rgbChannels.length)
+              let r = frame.data[i + 0]; // Red is at the first position of each group of four values for each new pixel
+              let g = frame.data[i + 1]; // green
+              let b = frame.data[i + 2]; // blue
+              let a = frame.data[i + 3]; // alpha
+              /*
+              Pixel manipulation here
+              */
+          }
+          // Apply
+          ctx.putImageData(frame, 0, 0);
         },
 
         // Noise over half canvas example
-        drawHalfNoiseCanvas: function() {
+        drawNoise: function() {
             const ctx = this.canvasElement.getContext('2d');
             const images = this.videoElement;
             const width = this.constraints.width;
