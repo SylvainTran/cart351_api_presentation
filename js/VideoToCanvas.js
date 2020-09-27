@@ -44,9 +44,12 @@ let VideoToCanvas = function () {
             const height = this.constraints.height;
             // Draw an image using the context and the video element as source
             ctx.drawImage(images, 0, 0, width, height);
+
             // Get a new frame using getImageData (see docs)
+            // Multiply the width and height by 4 because there are four values per pixels, so the full frame is 4*300 and 4*300 for width and height respectively
             // Note that we could allow a custom region to be extracted using mouse events instead, or allow to draw a shape
-            let frame = ctx.getImageData(0, 0, width, height); // We are extracting the full width and height of the context in this case
+            let frame = ctx.getImageData(0, 0, 4*width, 4*height); // We are extracting the full width and height of the context in this case
+
             // The frame contains ImageData, which has properties we can manipulate
             // frame.data is ImageData.data: a Uint8ClampedArray one dimensional array containing
             // data in the RGBA order, with integer values between [0, 255].
@@ -65,6 +68,8 @@ let VideoToCanvas = function () {
                 // Do whatever you want with the rgba values here
                 // Change pixels with frame.data[i + x] = changedValue;
             }
+            // Apply
+            // ctx.putImageData(frame, 0, 0);
         },
 
 
