@@ -20,7 +20,7 @@ let startup = function() {
         // This is a list of all methods in VideoToCanvas class that create effects by changing pixels inside canvas using imageData
         let videoEffects = [videoToCanvas.drawRegularImage,
                             videoToCanvas.drawGrayscale,
-                            videoToCanvas.drawRandomColors,
+                            videoToCanvas.drawInverted,
                             videoToCanvas.drawPatternedColors,
                             videoToCanvas.drawGreenScreenEffect,
                             videoToCanvas.drawNoise];
@@ -33,8 +33,5 @@ let startup = function() {
 
         // TODO:
         // Simple user interactions over canvas -- making certain image regions react to mouse?
-
-        // TODO:
-        // WebRTC connectivity?
     });
 }

@@ -72,7 +72,8 @@ let VideoToCanvas = function () {
             // ctx.putImageData(frame, 0, 0);
         },
 
-
+        // drawGrayscale()
+        //
         // Make black and white
         drawGrayscale: function () {
           // First get the drawing context from canvas (See CanvasRenderingContext2D)
@@ -91,9 +92,11 @@ let VideoToCanvas = function () {
               let g = frame.data[i + 1]; // green
               let b = frame.data[i + 2]; // blue
               let a = frame.data[i + 3]; // alpha
+
               // Luminance formula to calculate grayscale (red x 0.3 + green x 0.59 + blue x 0.11)
               let grayscale = r * 0.3 + g * 0.59 + b * 0.11;
-              // Change pixels with frame.data
+
+              // Change pixels
               // The alpha channel does not need to be changed;
               frame.data[i + 0] = grayscale; // r
               frame.data[i + 1] = grayscale; // g
@@ -104,8 +107,10 @@ let VideoToCanvas = function () {
           ctx.putImageData(frame, 0, 0);
         },
 
-        // Make random colors
-        drawRandomColors: function () {
+        // drawInverted()
+        //
+        // Invert color values
+        drawInverted: function () {
           // First get the drawing context from canvas (See CanvasRenderingContext2D)
           const ctx = this.canvasElement.getContext('2d');
           const images = this.videoElement;
@@ -113,6 +118,8 @@ let VideoToCanvas = function () {
           const height = this.constraints.height;
           // Draw an image using the context and the video element as source
           ctx.drawImage(images, 0, 0, width, height);
+          // Flip canvas upside down
+
           // Multiply the width and height by 4 because there are four values per pixels, so the full frame is 4*300 and 4*300 for width and height respectively
           let frame = ctx.getImageData(0, 0, 4*width, 4*height);
           const rgbaChannels = 4;
@@ -122,14 +129,24 @@ let VideoToCanvas = function () {
               let g = frame.data[i + 1]; // green
               let b = frame.data[i + 2]; // blue
               let a = frame.data[i + 3]; // alpha
-              /*
-              Pixel manipulation here
-              */
+
+              // Invert values
+              r = 255 - r;
+              g = 255 - g;
+              b = 255 - b;
+
+              // Change pixels
+              frame.data[i + 0] = r;
+              frame.data[i + 1] = g;
+              frame.data[i + 2] = b;
+              frame.data[i + 3] = a;
           }
           // Apply
           ctx.putImageData(frame, 0, 0);
         },
 
+        // drawPatternedColors()
+        //
         // Make patterned colors using modulo (%)
         drawPatternedColors: function () {
           // First get the drawing context from canvas (See CanvasRenderingContext2D)
@@ -141,6 +158,8 @@ let VideoToCanvas = function () {
           ctx.drawImage(images, 0, 0, width, height);
           // Multiply the width and height by 4 because there are four values per pixels, so the full frame is 4*300 and 4*300 for width and height respectively
           let frame = ctx.getImageData(0, 0, 4*width, 4*height);
+          ctx.clearRect(0, 0, width, height);
+          ctx.rect(0, 0, width, height);
           const rgbaChannels = 4;
           const framePixelsLength = frame.data.length / rgbaChannels; // 300 x 300
           for (let i = 0; i < framePixelsLength; i += rgbaChannels) { // To jump to the next pixel, we need to jump over three values (rgbChannels.length)
@@ -175,16 +194,20 @@ let VideoToCanvas = function () {
           let frame = ctx.getImageData(0, 0, 4*width, 4*height);
           const rgbaChannels = 4;
           const framePixelsLength = frame.data.length / rgbaChannels; // 300 x 300
+
           // Target colour for chromakey
           // Default is Chroma Key Green
           // For more functionality, write code to dynamically set the target with colour picker/mouse event on the canvas
+          // Tutorial that could help with this: https://ourcodeworld.com/articles/read/185/how-to-get-the-pixel-color-from-a-canvas-on-click-or-mouse-event-with-javascript
           let target = {
             r: 0,
             g: 177,
             b: 64
           };
-          // How sensitive is the chroma key effect (accepted overall difference between current and target rgb values)
+
+          // How sensitive is the chroma key effect (acceptable overall difference between current and target rgb values)
           let tolerance = 150;
+
           for (let i = 0; i < framePixelsLength; i += rgbaChannels) { // To jump to the next pixel, we need to jump over three values (rgbChannels.length)
             let r = frame.data[i + 0]; // Red is at the first position of each group of four values for each new pixel
             let g = frame.data[i + 1]; // green
@@ -192,7 +215,7 @@ let VideoToCanvas = function () {
             let a = frame.data[i + 3]; // alpha
 
             // Calculate difference between current rgb values and target rgb values
-            // If differenc is within tolerance, make pixel transparent
+            // If difference is within tolerance, make pixel transparent
             if (Math.abs(r - target.r) + Math.abs(g - target.g) + Math.abs(b - target.b) <= tolerance) {
               frame.data[i + 3] = 0;
             }

@@ -2,7 +2,7 @@
 let VideoOnlyMediaStream = function() {
     this.localMediaStream = null;  // The stream data we want to get from the user
     this.video = document.getElementById("videoTutorial"); // Get the video element to use
-    this.constraints = { video: { 
+    this.constraints = { video: {
         width: { min: 300, ideal: 300 },
         height: { min: 300, ideal: 300 },
         aspectRatio: { ideal: 1.7777777778 } // 16.9
@@ -13,7 +13,7 @@ let VideoOnlyMediaStream = function() {
     let getLocalMediaStream = function() {
         // First check if navigator has mediaDevices
         if(navigator.mediaDevices) {
-           // The stream's kind: it's a property for the kind of media. The resulting stream is required (through constraints) to have its the corresponding kind of track if set to true, otherwise -> error.            
+           // The stream's kind: it's a property for the kind of media. The resulting stream is required (through constraints) to have its the corresponding kind of track if set to true, otherwise -> error.
            // Note that the recording object, Media Recorder is only created inside the promise. Everything is handled in there due to async nature of net.
             navigator.mediaDevices.getUserMedia(constraints) // audio is set to true so we need a microphone track.
                 .then(function(stream) {
@@ -25,7 +25,7 @@ let VideoOnlyMediaStream = function() {
                     // Get the video track from the local media stream we filled in. Note this is an array
                     let videoTrack = this.localMediaStream.getVideoTracks();
                     if (videoTrack.length > 0) {
-                        // We could play the video if necessary but we just want the local stream data                           
+                        // We could play the video if necessary but we just want the local stream data
                         // Record stuff using the Media Recorder API and object
                         let videoStartbutton = document.getElementById("videoStartButton");
                         let videoStopButton = document.getElementById("videoStopButton");
@@ -41,7 +41,7 @@ let VideoOnlyMediaStream = function() {
                             mediaRecorder.start();
                             console.log(mediaRecorder.state);
                             videoStartButton.style.background = "red";
-                            videoStartButton.style.color = "white";                        
+                            videoStartButton.style.color = "white";
                             // Later this record can be stored, sent into a JSON and manipulated in a game or used as a config for canvas elements' behaviours, or through other libraries
                             ev.preventDefault();
                         }, false);
@@ -53,12 +53,12 @@ let VideoOnlyMediaStream = function() {
                             videoStartButton.style.background = "";
                             videoStartButton.style.color = "";
                         });
-                        
+
                         // When we stop recording, create a file
-                        mediaRecorder.onstop = function(e) {                    
+                        mediaRecorder.onstop = function(e) {
                             // Can do other things like save to JSON
                         }
-                        
+
                         // Handle video chunks -- if there are, prompt download for latest chunk available
                         function handleDataAvailable(event) {
                             if(event.data.size > 0) {

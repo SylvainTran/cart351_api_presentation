@@ -36,10 +36,6 @@ section {
   margin: auto;
 }
 
-.example > h3 {
-  text-transform: uppercase;
-}
-
 button {
   border: none;
   padding: 15px;
@@ -54,4 +50,8 @@ button {
 .stop {
   color: #fff;
   background-color: #8A6362;
+}
+
+.example > h3 {
+  text-transform: uppercase;
 }
