@@ -9,7 +9,6 @@ let VideoToCanvas = function () {
             this.videoElement = videoElement;
             this.canvasElement = canvasElement;
             this.constraints = constraints;
-            this.linkToVideo();
         },
 
         // linkToVideo
@@ -69,7 +68,7 @@ let VideoToCanvas = function () {
                 // Change pixels with frame.data[i + x] = changedValue;
             }
             // Apply
-            // ctx.putImageData(frame, 0, 0);
+            ctx.putImageData(frame, 0, 0);
         },
 
         // drawGrayscale()
@@ -224,7 +223,7 @@ let VideoToCanvas = function () {
           ctx.putImageData(frame, 0, 0);
         },
 
-        // Noise over half canvas example
+        // Noise example
         drawNoise: function() {
             const ctx = this.canvasElement.getContext('2d');
             const images = this.videoElement;
@@ -241,12 +240,7 @@ let VideoToCanvas = function () {
                 let b = frame.data[i + 2]; // blue
                 let a = frame.data[i + 3]; // alpha
 
-                // Do whatever you want with the rgba values here
-                // r = r+50;
-                // g = g+50;
-                // b = b+50;
-                // a = 255;
-                // Change pixels with frame.data[i + x] = changedValue;
+                // Add a random integer to each rgba value to create the noise effect
                 let x = Math.random() * 255;
                 frame.data[i + 0] = r + x;
                 frame.data[i + 1] = g + x;
@@ -256,33 +250,6 @@ let VideoToCanvas = function () {
             // Apply
             ctx.putImageData(frame, 0, 0);
         }
-
-        // // Example for reference
-        // drawExample: function (v, c, bc, w, h) {
-        //     if (v.paused || v.ended) return false;
-        //     // First, draw it into the backing canvas
-        //     bc.drawImage(v, 0, 0, w, h);
-        //     // Grab the pixel data from the backing canvas
-        //     let idata = bc.getImageData(0, 0, w, h);
-        //     let data = idata.data;
-        //     // Loop through the pixels, turning them grayscale
-        //     for (let i = 0; i < data.length; i += 4) {
-        //         let r = data[i];
-        //         let g = data[i + 1];
-        //         let b = data[i + 2];
-        //         let brightness = (3 * r + 4 * g + b) >>> 3;
-        //         data[i] = brightness;
-        //         data[i + 1] = brightness;
-        //         data[i + 2] = brightness;
-        //     }
-        //     idata.data = data;
-        //     // Draw the pixels onto the visible canvas
-        //     c.putImageData(idata, 0, 0);
-        //     // Start over
-        //     setTimeout(function () {
-        //         draw(v, c, bc, w, h);
-        //     }, 0);
-        // }
 
     }
 }

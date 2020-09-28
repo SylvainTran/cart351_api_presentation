@@ -6,7 +6,7 @@
     The first version shows Media Streams + Canvas API interactions.
 
 ## Presentation Slides
-    
+
     In development.
 
 ## Build Status
@@ -24,15 +24,13 @@
 
     Set Tutorials:
     Basic Use Get Video Capture to Change Canvas Elements - Done - Passing
-    Basic Use Get Audio Capture to create Patterns in Color or Animation - Not started\
+    Basic Use Get Audio Capture to create Patterns in Color or Animation - Not started
     Manipulation in Canvas (Filtering) - Done - Passing
     Dynamic Manipulation in Canvas (user mouse events) - Not started
-    WebRTC connectivity with one's canvas to remote peer canvas (collab art?)- Not started\ 
+    ~~ WebRTC connectivity with one's canvas to remote peer canvas (collab art?)- Not started\~~
 
     Constraints Configuration Tutorial:
     Basic Constraints - Not Started
-
-    Helper Methods:
 
     STRETCH GOALS:
 
@@ -47,7 +45,8 @@ v0.2 - Current version. Design and Structuring, v1 scope (Media Streams + Canvas
 v0.3 - Added MediaStreams for audio, structured base demo page html\
 v0.3b - Added audio record playback
 v0.4 - Added Get Video and record
-v0.5 - Added half screen noise pixel manipulation example
+v0.5 - Added screen noise pixel manipulation example
+v0.6 - Added Grayscale, Inverted, Patterned Colors, Green Screen
 
 ## Stretch
 
@@ -66,7 +65,7 @@ Logic:
     V1: Working set of modular examples to go with canvas element. Basic
     pixel manipulation.
 
-    V2: Show main digital art usages of MediaStreams: More in-depth canvas manipulation or WebRTC connectivity. WebGL? Motion Capture?
+    V2: Show main digital art usages of MediaStreams: More in-depth canvas manipulation or ~~WebRTC connectivity.~~ WebGL? Motion Capture?
 
     V3: Stretch game/main interactive application.
 
@@ -84,7 +83,7 @@ Logic:
     WebRTC
     MediaSource.addSourceBuffer()
 
-    Canvas Manipulation Related: 
+    Canvas Manipulation Related:
     drawImage() : https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
     getImageData() : https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getImageData
     putImageData() : https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/putImageData
