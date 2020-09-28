@@ -147,37 +147,50 @@ let VideoToCanvas = function() {
         // drawPatternedColors()
         //
         // Make patterned colors using modulo (%)
-        drawPatternedColors: function() {
-            // First get the drawing context from canvas (See CanvasRenderingContext2D)
-            const ctx = this.canvasElement.getContext('2d');
-            const images = this.videoElement;
-            const width = this.constraints.width;
-            const height = this.constraints.height;
-            // Draw an image using the context and the video element as source
-            ctx.drawImage(images, 0, 0, width, height);
-            // Multiply the width and height by 4 because there are four values per pixels, so the full frame is 4*300 and 4*300 for width and height respectively
-            let frame = ctx.getImageData(0, 0, 4 * width, 4 * height);
-            ctx.clearRect(0, 0, width, height);
-            ctx.rect(0, 0, width, height);
-            const rgbaChannels = 4;
-            const framePixelsLength = frame.data.length / rgbaChannels; // 300 x 300
-            for (let i = 0; i < framePixelsLength; i += rgbaChannels) { // To jump to the next pixel, we need to jump over three values (rgbChannels.length)
-                let r = frame.data[i + 0]; // Red is at the first position of each group of four values for each new pixel
-                let g = frame.data[i + 1]; // green
-                let b = frame.data[i + 2]; // blue
-                let a = frame.data[i + 3]; // alpha
+        drawPatterns: function () {
+          // First get the drawing context from canvas (See CanvasRenderingContext2D)
+          const ctx = this.canvasElement.getContext('2d');
+          const images = this.videoElement;
+          const width = this.constraints.width;
+          const height = this.constraints.height;
+          // Draw an image using the context and the video element as source
+          ctx.drawImage(images, 0, 0, width, height);
+          // Multiply the width and height by 4 because there are four values per pixels, so the full frame is 4*300 and 4*300 for width and height respectively
+          let frame = ctx.getImageData(0, 0, 4*width, 4*height);
+          ctx.clearRect(0, 0, width, height);
+          ctx.rect(0, 0, width, height);
+          const rgbaChannels = 4;
+          const framePixelsLength = frame.data.length / rgbaChannels; // 300 x 300
+          for (let i = 0; i < framePixelsLength; i += rgbaChannels) { // To jump to the next pixel, we need to jump over three values (rgbChannels.length)
+              let r = frame.data[i + 0]; // Red is at the first position of each group of four values for each new pixel
+              let g = frame.data[i + 1]; // green
+              let b = frame.data[i + 2]; // blue
+              let a = frame.data[i + 3]; // alpha
 
-                /*
-                Pixel manipulation here
-                */
+              // Horizontal coloured stripes
+              // Divide pixels into thirds horizontally
+              if (i < framePixelsLength/3) {
+                r += 50; // First third is red
+              }
+              else if (i >= framePixelsLength/3 && i < (framePixelsLength/3)*2) {
+                g += 50; // Second third is green
+              }
+              else if (i >= (framePixelsLength/3)*2) {
+                b += 50; // Final third is blue
+              }
 
-                frame.data[i + 0] = r;
-                frame.data[i + 1] = g;
-                frame.data[i + 2] = b;
-                frame.data[i + 3] = a;
-            }
-            // Apply
-            ctx.putImageData(frame, 0, 0);
+              // Create vertical stripe effect using modulus and alpha channel adjustments
+              if (i % 75 === 0) {
+                a = 100;
+              }
+
+              frame.data[i + 0] = r;
+              frame.data[i + 1] = g;
+              frame.data[i + 2] = b;
+              frame.data[i + 3] = a;
+          }
+          // Apply
+          ctx.putImageData(frame, 0, 0);
         },
 
         // Make a green screen effect on click event
