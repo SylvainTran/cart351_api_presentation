@@ -24,7 +24,6 @@ let startup = function() {
             videoToCanvas.drawGrayscale,
             videoToCanvas.drawInverted,
             videoToCanvas.drawPatternedColors,
-            videoToCanvas.drawGreenScreenEffect,
             videoToCanvas.drawNoise
         ];
 
@@ -37,7 +36,17 @@ let startup = function() {
             videoToCanvas.linkToVideo();
         }
 
-        // TODO:
-        // Simple user interactions over canvas -- making certain image regions react to mouse?
+        // Green screen
+        let greenScreenVideoToCanvas = new VideoToCanvas();
+        let greenScreenCanvas = document.getElementById("greenScreenCanvas");
+        greenScreenVideoToCanvas.init(videoToCanvas.drawRegularImage, videoElement, greenScreenCanvas, constraints);
+        greenScreenCanvas.addEventListener('click', function(event) {
+            greenScreenVideoToCanvas.drawGreenScreenEffect(event);
+        });
+
+        // Otherwise refresh that canvas anyways
+        greenScreenCanvas.addEventListener('mousemove', function(event) {
+            greenScreenVideoToCanvas.drawAtMousePosition(event);
+        });
     });
 }
