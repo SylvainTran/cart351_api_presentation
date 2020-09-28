@@ -23,7 +23,7 @@ let startup = function() {
             videoToCanvas.drawRegularImage,
             videoToCanvas.drawGrayscale,
             videoToCanvas.drawInverted,
-            videoToCanvas.drawPatternedColors,
+            videoToCanvas.drawPatterns,
             videoToCanvas.drawGreenScreenEffect,
             videoToCanvas.drawNoise
         ];

@@ -147,7 +147,7 @@ let VideoToCanvas = function () {
         // drawPatternedColors()
         //
         // Make patterned colors using modulo (%)
-        drawPatternedColors: function () {
+        drawPatterns: function () {
           // First get the drawing context from canvas (See CanvasRenderingContext2D)
           const ctx = this.canvasElement.getContext('2d');
           const images = this.videoElement;
@@ -167,9 +167,22 @@ let VideoToCanvas = function () {
               let b = frame.data[i + 2]; // blue
               let a = frame.data[i + 3]; // alpha
 
-              /*
-              Pixel manipulation here
-              */
+              // Horizontal coloured stripes
+              // Divide pixels into thirds horizontally
+              if (i < framePixelsLength/3) {
+                r += 50; // First third is red
+              }
+              else if (i >= framePixelsLength/3 && i < (framePixelsLength/3)*2) {
+                g += 50; // Second third is green
+              }
+              else if (i >= (framePixelsLength/3)*2) {
+                b += 50; // Final third is blue
+              }
+
+              // Create vertical stripe effect using modulus and alpha channel adjustments
+              if (i % 75 === 0) {
+                a = 100;
+              }
 
               frame.data[i + 0] = r;
               frame.data[i + 1] = g;

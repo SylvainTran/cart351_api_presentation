@@ -45,8 +45,10 @@ v0.2 - Current version. Design and Structuring, v1 scope (Media Streams + Canvas
 v0.3 - Added MediaStreams for audio, structured base demo page html\
 v0.3b - Added audio record playback
 v0.4 - Added Get Video and record
-v0.5 - Added screen noise pixel manipulation example
-v0.6 - Added Grayscale, Inverted, Patterned Colors, Green Screen
+v0.5 - Added Screen Noise pixel manipulation example
+v0.6 - Added Grayscale, Inverted, Green Screen examples
+v0.7 - Added styles
+v0.8 - Added Patterns example
 
 ## Stretch
 
@@ -104,6 +106,9 @@ Logic:
         http://html5doctor.com/video-canvas-magic/
         https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode
         https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Manipulating_video_using_canvas
+        https://www.htmlgoodies.com/html5/javascript/display-images-in-black-and-white-using-the-html5-canvas.html
+        https://hmp.is.it/creating-chroma-key-effect-html5-canvas/
+        https://ourcodeworld.com/articles/read/185/how-to-get-the-pixel-color-from-a-canvas-on-click-or-mouse-event-with-javascript
 
 ## Timeline
 
