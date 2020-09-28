@@ -148,7 +148,7 @@ let VideoToCanvas = function () {
               let g = frame.data[i + 1]; // green
               let b = frame.data[i + 2]; // blue
               let a = frame.data[i + 3]; // alpha
-              
+
               /*
               Pixel manipulation here
               */
@@ -175,15 +175,27 @@ let VideoToCanvas = function () {
           let frame = ctx.getImageData(0, 0, 4*width, 4*height);
           const rgbaChannels = 4;
           const framePixelsLength = frame.data.length / rgbaChannels; // 300 x 300
+          // Target colour for chromakey
+          // Default is Chroma Key Green
+          // For more functionality, write code to dynamically set the target with colour picker/mouse event on the canvas
+          let target = {
+            r: 0,
+            g: 177,
+            b: 64
+          };
+          // How sensitive is the chroma key effect (accepted overall difference between current and target rgb values)
+          let tolerance = 150;
           for (let i = 0; i < framePixelsLength; i += rgbaChannels) { // To jump to the next pixel, we need to jump over three values (rgbChannels.length)
-              let r = frame.data[i + 0]; // Red is at the first position of each group of four values for each new pixel
-              let g = frame.data[i + 1]; // green
-              let b = frame.data[i + 2]; // blue
-              let a = frame.data[i + 3]; // alpha
-              /*
-              Pixel manipulation here
-              */
+            let r = frame.data[i + 0]; // Red is at the first position of each group of four values for each new pixel
+            let g = frame.data[i + 1]; // green
+            let b = frame.data[i + 2]; // blue
+            let a = frame.data[i + 3]; // alpha
 
+            // Calculate difference between current rgb values and target rgb values
+            // If differenc is within tolerance, make pixel transparent
+            if (Math.abs(r - target.r) + Math.abs(g - target.g) + Math.abs(b - target.b) <= tolerance) {
+              frame.data[i + 3] = 0;
+            }
           }
           // Apply
           ctx.putImageData(frame, 0, 0);
