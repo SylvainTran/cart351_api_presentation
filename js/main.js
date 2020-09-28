@@ -29,7 +29,6 @@ let startup = function() {
         if (i < videoEffects.length) {
           videoToCanvas.init(videoEffects[i], videoElement, canvasElements[i], constraints);
         }
-
       }
 
         // TODO:

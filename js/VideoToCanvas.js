@@ -148,9 +148,15 @@ let VideoToCanvas = function () {
               let g = frame.data[i + 1]; // green
               let b = frame.data[i + 2]; // blue
               let a = frame.data[i + 3]; // alpha
+              
               /*
               Pixel manipulation here
               */
+
+              frame.data[i + 0] = r;
+              frame.data[i + 1] = g;
+              frame.data[i + 2] = b;
+              frame.data[i + 3] = a;
           }
           // Apply
           ctx.putImageData(frame, 0, 0);
@@ -177,6 +183,7 @@ let VideoToCanvas = function () {
               /*
               Pixel manipulation here
               */
+
           }
           // Apply
           ctx.putImageData(frame, 0, 0);

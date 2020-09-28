@@ -20,63 +20,69 @@
 
     <body>
         <!-- Begin get audio tutorial. -->
-        <h1>Simple Audio Logger: Get Audio</h1>
-        <h2>1) The first step is to create a media stream to capture or create our DATA.</h2>
-        <h3>This was done when you accepted to use your microphone and camera in this case (either or both depending on constraints passed to getUserMedia().</h3>
-        <div id="microphone">
-            <audio id="audio"></audio>
-            <h2>2) The second step is to use the media stream recording API to record audio. Click on record microphone to record audio.</h2>
-            <button id="audioStartButton">Record Microphone</button>
-            <button id="audioStopButton">Stop Microphone</button>
-        </div>
-        <h2>This concludes getting a simple audio recording through Media Streams API + MediaStream Recording API</h2>
-
+        <section id="audioRecordTutorial">
+          <h1>Simple Audio Logger: Get Audio</h1>
+          <h2>Uses the Media Streams API + MediaStream Recording API (closely affiliated)</h2>
+          <h3>1. Create a media stream to capture or create DATA.</h3>
+          <p>This was done when you accepted to use your microphone and/or camera, depending on constraints passed to getUserMedia().</p>
+          <div id="microphone">
+              <audio id="audio"></audio>
+              <h3>2. Use the MediaStream Recording API to record audio (click on record microphone to record audio). File automatically downloads</h3>
+              <button class="start" id="audioStartButton">Record Audio</button>
+              <button class="stop" id="audioStopButton">Stop Record</button>
+          </div>
+        </section>
         <!-- Begin get video tutorial. -->
-        <h1>Simple Video Recorder: Get Video</h1>
-        <h2>1) Let's see how to record video to be able to use it in a canvas later.</h2>
+        <section id="videoRecordTutorial">
+          <h1>Simple Video Recorder: Get Video</h1>
+          <h3>1. Record video to be able to use it in a canvas later. File automatically downloads.</h3>
 
-        <!-- Used to capture and store video frames. -->
-        <div id="camera">
-            <video style="display: none;" id="video">
-                Video stream not available.
-            </video>
+          <!-- Used to capture and store video frames. -->
+          <div id="camera">
+              <video style="display: none;" id="video">
+                  Video stream not available.
+              </video>
 
-            <video id="videoTutorial">
-                Video stream not available.
-            </video><br>
-            <button id="videoStartButton">Record Video</button>
-            <button id="videoStopButton">Stop Record Video</button>
-        </div>
-
-        <!-- Used to capture and store the frames. -->
-        <h2>2) Examples of pixel manipulation effects</h2>
-        <div id="canvasGrid">
-          <div class="example">
-            <h3>No effects</h3>
-            <canvas class="canvas" id="c1" height="300"></canvas>
+              <video id="videoTutorial">
+                  Video stream not available.
+              </video><br>
+              <button class="start" id="videoStartButton">Record Video</button>
+              <button class="stop" id="videoStopButton">Stop Record</button>
           </div>
-          <div class="example">
-            <h3>Grayscale</h3>
-            <canvas class="canvas" id="c2" height="300"></canvas>
+        </section>
+          <!-- Video to canvas and pixel manipulation -->
+        <section id="videoCanvasTutorial">
+          <h1>Simple Manipulation With Canvas</h1>
+          <h3>1. Draw video stream to HTML5 canvas elements</h3>
+          <h3>2. Add effects using pixel manipulation</h3>
+          <div id="canvasGrid">
+            <div class="example">
+              <h3>No effects</h3>
+              <canvas class="canvas" id="c1" height="300"></canvas>
+            </div>
+            <div class="example">
+              <h3>Grayscale</h3>
+              <canvas class="canvas" id="c2" height="300"></canvas>
+            </div>
+            <div class="example">
+              <h3>Random colors</h3>
+              <canvas class="canvas" id="c3" height="300"></canvas>
+            </div>
+            <div class="example">
+              <h3>Patterned Colors</h3>
+              <canvas class="canvas" id="c4" height="300"></canvas>
+            </div>
+            <div class="example">
+              <h3>Green screen</h3>
+              <canvas class="canvas" id="c5" height="300"></canvas>
+            </div>
+            <div class="example">
+              <h3>Noise</h3>
+              <canvas class="canvas" id="c6" height="300"></canvas>
+            </div>
           </div>
-          <div class="example">
-            <h3>Random colors</h3>
-            <canvas class="canvas" id="c3" height="300"></canvas>
-          </div>
-          <div class="example">
-            <h3>Patterned Colors</h3>
-            <canvas class="canvas" id="c4" height="300"></canvas>
-          </div>
-          <div class="example">
-            <h3>Green screen</h3>
-            <canvas class="canvas" id="c5" height="300"></canvas>
-          </div>
-          <div class="example">
-            <h3>Noise</h3>
-            <canvas class="canvas" id="c6" height="300"></canvas>
-          </div>
-        </div>
-        <div class="output">
+          <div class="output">
+        </section>
             <!-- <img id="photo" alt="The screen capture will appear in this box."> -->
     </body>
 
