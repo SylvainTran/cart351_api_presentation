@@ -147,7 +147,7 @@ let VideoToCanvas = function() {
         // drawPatternedColors()
         //
         // Make patterned colors using modulo (%)
-        drawPatterns: function () {
+        drawPatternedColors: function () {
           // First get the drawing context from canvas (See CanvasRenderingContext2D)
           const ctx = this.canvasElement.getContext('2d');
           const images = this.videoElement;
@@ -230,7 +230,7 @@ let VideoToCanvas = function() {
             target.b = pixelData[2];
 
             // How sensitive is the chroma key effect (acceptable overall difference between current and target rgb values)
-            let tolerance = 150;
+            let tolerance = 45;
 
             for (let i = 0; i < framePixelsLength; i += rgbaChannels) { // To jump to the next pixel, we need to jump over three values (rgbChannels.length)
                 let r = frame.data[i + 0]; // Red is at the first position of each group of four values for each new pixel
