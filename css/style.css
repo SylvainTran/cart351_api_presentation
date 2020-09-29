@@ -57,6 +57,6 @@ button {
 }
 
 #greenScreenCanvas {
-  background-image: url(img/green_screen_bg.jpg);
+  background-image: url(../img/green_screen_bg.jpg);
   background-repeat: no-repeat;
 }
