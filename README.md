@@ -92,6 +92,9 @@ Logic:
     ImageData : https://developer.mozilla.org/en-US/docs/Web/API/ImageData
     ImageData.data: https://developer.mozilla.org/en-US/docs/Web/API/ImageData/data
 
+    Three.js 3D example:
+    https://threejs.org/examples/?q=webcam#webgl_materials_video_webcam
+
 ## References
 
     Media Streams API:
