@@ -55,3 +55,8 @@ button {
 .example > h3 {
   text-transform: uppercase;
 }
+
+#greenScreenCanvas {
+  background-image: url(img/green_screen_bg.jpg);
+  background-repeat: no-repeat;
+}

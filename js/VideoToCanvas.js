@@ -194,7 +194,7 @@ let VideoToCanvas = function() {
         },
 
         // Make a green screen effect on click event
-        drawGreenScreenEffect: function(event) {
+        drawGreenScreenEffect: function(event, interactive) {
             // First get the drawing context from canvas (See CanvasRenderingContext2D)
             const ctx = this.canvasElement.getContext('2d');
             const images = this.videoElement;
@@ -210,9 +210,11 @@ let VideoToCanvas = function() {
             // Target colour for chromakey
             // Default is Chroma Key Green
             // Color picker:
-            // Get the pixel at the current mouse position
-            let radius = 4 * 4;
-            colorPickSample(this.canvasElement, radius);
+            // Get the pixel at the current mouse position if interactive is true
+            if(interactive) {
+                let radius = 4 * 4;
+                colorPickSample(this.canvasElement, radius);    
+            }
 
             // For more functionality, write code to dynamically set the target with colour picker/mouse event on the canvas
             // Tutorial that could help with this: https://ourcodeworld.com/articles/read/185/how-to-get-the-pixel-color-from-a-canvas-on-click-or-mouse-event-with-javascript

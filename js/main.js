@@ -36,17 +36,25 @@ let startup = function() {
             videoToCanvas.linkToVideo();
         }
 
-        // Green screen
-        let greenScreenVideoToCanvas = new VideoToCanvas();
-        let greenScreenCanvas = document.getElementById("greenScreenCanvas");
-        greenScreenVideoToCanvas.init(videoToCanvas.drawRegularImage, videoElement, greenScreenCanvas, constraints);
-        greenScreenCanvas.addEventListener('click', function(event) {
-            greenScreenVideoToCanvas.drawGreenScreenEffect(event);
+        // Subtract effect
+        let subtractVideoToCanvas = new VideoToCanvas();
+        let subtractCanvas = document.getElementById("subtractCanvas");
+        subtractVideoToCanvas.init(videoToCanvas.drawRegularImage, videoElement, subtractCanvas, constraints);
+        subtractCanvas.addEventListener('click', function(event) {
+            subtractVideoToCanvas.drawGreenScreenEffect(event);
         });
 
         // Otherwise refresh that canvas anyways
-        greenScreenCanvas.addEventListener('mousemove', function(event) {
-            greenScreenVideoToCanvas.drawAtMousePosition(event);
+        subtractCanvas.addEventListener('mousemove', function(event) {
+            subtractVideoToCanvas.drawAtMousePosition(event);
         });
+
+        let greenScreenVideoToCanvas = new VideoToCanvas();
+        let greenScreenCanvas = document.getElementById("greenScreenCanvas");
+        greenScreenVideoToCanvas.init(greenScreenCanvas.drawRegularImage, videoElement, greenScreenCanvas, constraints);
+        greenScreenCanvas.addEventListener('mousemove', function(event) {        
+            greenScreenVideoToCanvas.drawGreenScreenEffect(event);
+        });
+
     });
 }
