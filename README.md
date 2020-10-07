@@ -49,18 +49,6 @@
 - v0.7 - Added styles
 - v0.8 - Added Patterns example
 
-## Stretch
-
-Game/Main Interactive Application Example
-
-Scenes:
-    Start Game
-    End
-
-Logic:
-    User interaction: MediaStream capture\n
-    User data:
-
 ## Versions
 
     V1: Working set of modular examples to go with canvas element. Basic
