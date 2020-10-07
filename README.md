@@ -24,9 +24,8 @@
 
     Set Tutorials:
     Basic Use Get Video Capture to Change Canvas Elements - Done - Passing
-    Basic Use Get Audio Capture to create Patterns in Color or Animation - Not started
     Manipulation in Canvas (Filtering) - Done - Passing
-    Dynamic Manipulation in Canvas (user mouse events) - Not started
+    Dynamic Manipulation in Canvas (user mouse events) -  Done - Passing
     ~~ WebRTC connectivity with one's canvas to remote peer canvas (collab art?)- Not started\~~
 
     Constraints Configuration Tutorial:
@@ -40,15 +39,15 @@
 
 ## Change Log History
 
-v0.1 - Demo tutorial media capture picture\
-v0.2 - Current version. Design and Structuring, v1 scope (Media Streams + Canvas API)\
-v0.3 - Added MediaStreams for audio, structured base demo page html\
-v0.3b - Added audio record playback
-v0.4 - Added Get Video and record
-v0.5 - Added Screen Noise pixel manipulation example
-v0.6 - Added Grayscale, Inverted, Green Screen examples
-v0.7 - Added styles
-v0.8 - Added Patterns example
+- v0.1 - Demo tutorial media capture picture\
+- v0.2 - Current version. Design and Structuring, v1 scope (Media Streams + Canvas API)\
+- v0.3 - Added MediaStreams for audio, structured base demo page html\
+- v0.3b - Added audio record playback
+- v0.4 - Added Get Video and record
+- v0.5 - Added Screen Noise pixel manipulation example
+- v0.6 - Added Grayscale, Inverted, Green Screen examples
+- v0.7 - Added styles
+- v0.8 - Added Patterns example
 
 ## Stretch
 
